@@ -26,15 +26,16 @@ h1 {
 	text-align: center;
 	background: steelblue;
 	margin: 0;
-	font-weight: normal;
+	font-weight: 600;
 	text-transform: uppercase;
 	line-height: 1.1;
 	padding: 20px 0;
+	letter-spacing: 2px;
 }
 
 #message {
 	display: inline-block;
-	width: 20%;
+	width: 15%
 }
 
 #stripe {
@@ -50,7 +51,9 @@ h1 {
 }
 
 #colorDisplay {
-	font-size: 200%;
+	font-size: 170%;
+	font-family: "Rubik";
+	letter-spacing: 2px;
 }
 
 button {
@@ -74,4 +77,20 @@ button:hover {
 
 button:focus {
 	outline: none;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.orange {
+    color: orange;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
 }

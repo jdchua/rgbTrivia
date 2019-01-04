@@ -4,19 +4,22 @@
     	<title>Color Game</title>
     	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/main.css"> 
+        <link href="https://fonts.googleapis.com/css?family=Rubik:700" rel="stylesheet">
     </head>
     <body>
-    
-        <h1>
-        	The Great
+        
+         <h1>
+        	<span class="yellow">The</span>
+        	<span class="green">Great</span>
         	<br>
             <span id="colorDisplay">RGB</span>
          	<br>
-         	Color Game
+         	<span class="red">Color</span>
+         	<span class="orange">Game</span>
         </h1>
-        
+    
         <div id="stripe">
-        	<button id="reset">New Colors</button>
+            <button id="reset">New Colors</button>
         	<span id="message"></span>
         	<button id="easyBtn">Easy</button>
         	<button id="hardBtn" class="selected">Hard</button>
@@ -32,6 +35,9 @@
         </div>
         
         <!--<script type="text/javascript" src="/colorGame.js"></script>       -->
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         
         <script>
             var numSquares = 6;
