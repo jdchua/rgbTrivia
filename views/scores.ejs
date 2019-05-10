@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/main.css"> 
+        <link href="https://fonts.googleapis.com/css?family=Rubik:700" rel="stylesheet">
+    </head>
+    <body>
+        
+        <div class="leaderboard">
+            <div class="leaderboardInfo">
+                <div class="leaderboardCircle">
+                    <span class="trophy">
+                        <img src="https://image.flaticon.com/icons/svg/321/321773.svg"></img>
+                    </span>
+                </div>
+                <span>RGB Color Game</span>
+                <span>TOP SCORES</span>
+                <button><a href="/">Play Again?</a></button>
+            </div>
+            <div class="leaderboardScores">
+                <% scores.forEach(function(scores){ %>
+                    <div class="individuals">
+                      <p class="player"><%= scores.name %></p>
+                      <span class="scores">
+                          <!--<%= scores.scores %>-->
+                          <p><%= scores.scores %> pts</p>
+                      </span>
+                    </div>
+                    <hr>
+                <% }); %>
+            </div>
+        </div>
+        
+        
+        <!--<h1>Top Scores</h1>-->
+        <!--<hr>-->
+        <!--<ol>-->
+        <!--    <% scores.forEach(function(scores){ %>-->
+        <!--        <li>-->
+        <!--        <div class="individuals">-->
+        <!--          <p class="player"><%= scores.name %></p>-->
+        <!--          <span class="scores"><%= scores.scores %></span>-->
+        <!--        </div>-->
+        <!--        </li>-->
+        <!--    <% }); %>-->
+        <!--</ol>-->
+        
+        
+    </body>
+</html>
+

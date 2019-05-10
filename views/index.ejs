@@ -5,7 +5,7 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/main.css"> 
-        <link href="https://fonts.googleapis.com/css?family=Rubik:700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rubik:700|Francois+One" rel="stylesheet">
     </head>
     <body>
         <div id="main">
@@ -16,8 +16,20 @@
                 </div>
                 <div class="wrong">
                     <h1 class="after">Nice Try!</h1>
-                    <p class="after scoreAfter">Score: <span id="score1"></span></p>
+                    <p class="scoreAfter">Score: <span id="score1"></span></p>
                     <button id="reset1">Try Again</button>
+                    <div class="leaderboardBtn">
+                        <button id="reset1" onclick="window.location='/scores';">
+                            LEADERBOARD
+                        </button>
+                    </div>
+                    <div class="newScore">
+                        <form action="/scores" method="POST" autocomplete="off">
+                            <input type="text" class="nameScore" name="name" placeholder="name" required>
+                            <input id="score1" style="display:none" class="highScore" type="text" name="scores" readonly>
+                            <button class="btn-1"><span>Submit High Score!</span></button>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div id="mySidenav" class="sidenav">
@@ -27,13 +39,13 @@
               <p>For example, rgb(0, 0, 255) is rendered as blue, because the blue parameter is set to its highest value (255) and the others are set to 0.</p>
             </div>
             <h1 class="banner">
-            	<span class="yellow">The</span>
-            	<span class="green">Great</span>
+            	<span class="yellow">RGB</span>
+            	<span class="green">Trivia</span>
             	<br>
                 <span id="colorDisplay">RGB</span>
-             	<br>
-             	<span class="red">Color</span>
-             	<span class="orange">Game</span>
+             	<!--<br>-->
+             	<!--<span class="red">Color</span>-->
+             	<!--<span class="orange">Game</span>-->
             </h1>
             <div id="stripe">
                 <div class="info">
@@ -84,6 +96,8 @@
                 	}
                 	setTimeout( function() { $(".square").removeClass("big"); $(".overlay").hide() }, 1 );
                 	banner.style.backgroundColor = "#232323";
+                	$(".highScore").val(0);
+                	$(".newScore").hide();
                });
             });
                         
@@ -100,6 +114,9 @@
                 	score = 0;
                 	document.getElementById("score").innerHTML = score;
                 	banner.style.backgroundColor = "#232323";
+                	$(".highScore").val(0);
+                	$(".newScore").hide();
+
                });
             });
         
@@ -119,6 +136,18 @@
             		} else {
             		    $(".correct").hide();
             		    $(".overlay").show();
+            		    if (<%=scores[4].scores%> < score) {
+            		        $(".wrong").css("margin-top", "42vh");
+            		        $(".highScore").val(score);
+            		        $(".newScore").show();
+            		        $(".wrong").show();
+                		    me = this;
+                            setTimeout( function() { $(me).addClass("big"); }, 1 );
+                            document.getElementById("score").innerHTML = score;
+                            document.getElementById("score1").innerHTML = score;
+                			banner.style.backgroundColor = clickedColor;
+                			score = 0;
+            		    } else {
                         $(".wrong").show();
             		    me = this;
                         setTimeout( function() { $(me).addClass("big"); }, 1 );
@@ -126,6 +155,8 @@
                         document.getElementById("score1").innerHTML = score;
             			banner.style.backgroundColor = clickedColor;
             			score = 0;
+            		    $(".wrong").css("margin-top", "47vh");
+            		    }
             		}
             	});
             }
@@ -157,6 +188,7 @@
             	var b = Math.floor(Math.random() * 256);
             	return "rgb(" + r + ", " + g + ", " + b +")";
             }
+        
         </script>
     </body>
 </html>
