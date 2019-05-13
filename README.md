@@ -1,7 +1,7 @@
 # FestivalCamp
-<img src="https://u.cubeupload.com/jnike/RGBColorGame.png">
+<img src="http://u.cubeupload.com/jnike/rgbTriviav0.png">
 
-Web application aimed to test users on their knowledge of different RGB colors with two different difficulties.
+Web application aimed to test users on their knowledge of different RGB colors. Users are able to keep track of their scores and compete with other users for their placement on the high score leaderboard.
 
 ## Demo
 Working live demo: https://rocky-ocean-55295.herokuapp.com
@@ -20,7 +20,13 @@ npm install
 
 ## Features
 
-* Two difficulties (easy or hard)
+* Top 5 Scoreboard
+
+* Scorekeeping feature
+
+* DOM manipulations
+
+* CSS animations
 
 * Responsive web design
 
@@ -30,3 +36,7 @@ npm install
 * [Bootstrap](https://getbootstrap.com/docs/3.3/)
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [Jquery](https://jquery.com/)
+* [Node.JS](https://nodejs.org/en/)
+* [mongoDB](https://www.mongodb.com/)
+* [mongoose](https://mongoosejs.com/)
+* [express](https://expressjs.com/)
