@@ -1,4 +1,4 @@
-# FestivalCamp
+# RGB Trivia
 <img src="http://u.cubeupload.com/jnike/rgbTriviav0.png">
 
 Web application aimed to test users on their knowledge of different RGB colors. Users are able to keep track of their scores and compete with other users for their placement on the high score leaderboard.
@@ -10,7 +10,7 @@ Working live demo: https://rocky-ocean-55295.herokuapp.com
 
 ### Clone or download this repository
 ```sh
-git clone https://github.com/jdchua/rgbColorGame.git
+git clone https://github.com/jdchua/rgbTrivia.git
 ```
 
 ### Install dependencies
