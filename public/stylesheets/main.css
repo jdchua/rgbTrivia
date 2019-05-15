@@ -50,7 +50,7 @@ body {
 	letter-spacing: 2px;
 }
 
-.scoreAfter {
+.wrong p {
 	font-size: 20px;
 	color: white;
 	font-weight: 500;
@@ -130,7 +130,6 @@ button, #scoreDisplay {
 
 
 button:hover {
-	/*color: white;*/
 	background: steelblue;
 }
 
@@ -138,7 +137,7 @@ button:focus {
 	outline: none;
 }
 
-.yellow {
+.banner span:first-child {
     color: yellow;
     font-family: "Francois One";
     letter-spacing: 5px;
@@ -152,7 +151,7 @@ button:focus {
     color: red;
 }
 
-.green {
+.banner span:nth-child(2) {
     color: green;
     font-family: "Francois One";
     letter-spacing: 5px;
@@ -197,7 +196,7 @@ button:focus {
 	transition-duration: 0.7s;
 }	
 
-#reset, #reset1 {
+#nextColor, #reset, .leaderboardBtn button {
 	  border: 2px solid white;
 	  padding: 8px;
 	  color: white;
@@ -221,11 +220,11 @@ button:focus {
 	  -webkit-transition: 0.15s ease-in;
 }
 
-#reset1:hover, #reset:hover, #reset1 a:hover {
+#reset:hover, #nextColor:hover, .leaderboardBtn button:hover {
   color: black;
 }
 
-#reset1:before, #reset:before {
+#reset:before, #nextColor:before, .leaderboardBtn button:before {
   content: "";
   position: absolute;
   background: white;
@@ -237,11 +236,11 @@ button:focus {
   -webkit-transition: top 0.15s ease-in;
 }
 
-#reset1:hover:before, #reset:hover:before {
+#reset:hover:before, #nextColor:hover:before, .leaderboardBtn button:hover:before {
   top: 0;
 }
 
-#reset, #reset1:hover {
+#nextColor, #reset:hover, .leaderboardBtn button:hover {
 	background: none;
 }
 
@@ -259,7 +258,6 @@ ol {
 	width: 250px;
 	margin: 0 auto;
 	display: inline-block;
-	/*margin-bottom: 20px;*/
     margin-top: 10px;
     padding: 0 5px;
 }
@@ -291,7 +289,6 @@ hr:last-child {
 }
 
 .leaderboard {
-	/*border: 1px solid white;*/
 	display:flex;
 	width: 600px;
 	margin: auto;
@@ -303,7 +300,6 @@ hr:last-child {
 }
 
 .leaderboardCircle {
-	/*border: 1px solid blue;*/
 	border-radius: 50%;
     height: 90px;
     width: 90px;
@@ -314,12 +310,10 @@ hr:last-child {
 }
 
 .leaderboardInfo {
-	/*height:50vh;*/
 	align-items:center;
 	justify-content:center;
 	display:flex;
 	width: 250px;
-	/*border: 1px solid green;*/
 	height: 250px;
 	margin: auto;
 	margin-top: 20%;
@@ -359,12 +353,10 @@ hr:last-child {
 }
 
 .leaderboardScores {
-	/*height:50vh;*/
 	align-items:center;
 	justify-content:center;
 	display:flex;
 	flex:1;
-	/*border: 1px solid red;*/
 	z-index: 10;
 	margin-left: -20px;
 	flex-direction: column;
@@ -418,37 +410,37 @@ hr:last-child {
 	color: white;
 }
 
-.btn-1 span {
+.highBtn span {
 	display: block;
 	padding: 5px;
 }
 
 
-.btn-1::after{
+.highBtn::after{
   right:0;
   bottom: 0;
   transition-duration: 0.4s;
 }
 
-.btn-1 span::after{
+.highBtn span::after{
   right:0;
   bottom: 0;
   transition-duration: 0.4s;
 }
 
-.btn-1::before{
+.highBtn::before{
   left: 0;
   top: 0;
   transition-duration: 0.4s;
 }
-.btn-1 span::before{
+.highBtn span::before{
   left: 0;
   top: 0;
   transition-duration: 0.4s;
 }
 
 
-.btn-1 {
+.highBtn {
   display: inline-block;
   position: relative;
   background: none;
@@ -460,7 +452,7 @@ hr:last-child {
   background: rgba(0,0,0,0.09);
 }
 
-.btn-1::before, .btn-1::after{
+.highBtn::before, .highBtn::after{
   content:"";
   width: 0;
   height: 2px;
@@ -469,7 +461,7 @@ hr:last-child {
   background: #fff;
 }
 
-.btn-1 span::before, .btn-1 span::after{
+.highBtn span::before, .highBtn span::after{
   content:"";
   width:2px;
   height:0;
@@ -478,11 +470,11 @@ hr:last-child {
   background: #fff;
 }
 
-.btn-1:hover::before, .btn-1:hover::after{
+.highBtn:hover::before, .highBtn:hover::after{
   width: 100%;
 }
 
-.btn-1:hover .btn-1 span::before, .btn-1:hover .btn-1 span::after{
+.highBtn:hover .highBtn span::before, .highBtn:hover .highBtn span::after{
   height: 100%;
 }
 
@@ -511,7 +503,6 @@ button:focus {
 	.square {
 		min-width: 120px;
 		min-height: 120px;
-		/*margin-bottom: 50px;*/
 	}
 	
 	.correct {

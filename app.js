@@ -1,5 +1,3 @@
-// ignore get route for campgrounds/new
-
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
@@ -8,7 +6,6 @@ var mongoose = require("mongoose");
 mongoose.connect("mongodb://jeremiah:JballeR24!@ds211625.mlab.com:11625/rgbtrivia", { useNewUrlParser: true });
 
 // mongoose.connect("mongodb://localhost:27017/colorGame", { useNewUrlParser: true });
-
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -21,16 +18,6 @@ var leaderboardSchema = new mongoose.Schema({
 });
 
 var Leaderboard = mongoose.model("Leaderboard", leaderboardSchema);
-
-// Leaderboard.create(
-//         {name: "Jasmine", scores: "3"}, function(err, leaderboard) {
-//         if(err){
-//             console.log(err);
-//         } else {
-//             console.log("new score");
-//             console.log(leaderboard);
-//         }
-//     });
 
 app.get("/", function(req, res){
     Leaderboard.find({}, function(err, scores) {
@@ -66,5 +53,5 @@ app.post ("/scores", function(req, res) {
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("RGB Color Game has started");
+    console.log("RGB Trivia has started");
 });

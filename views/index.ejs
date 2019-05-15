@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	<title>Color Game</title>
+    	<title>RGB Trivia</title>
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/main.css"> 
@@ -12,35 +12,35 @@
             <div class="overlay">
                 <div class="correct">
                     <h1 class="after">Correct!</h1>
-                    <button id="reset">Next Colors</button>
+                    <button id="nextColor">Next Colors</button>
                 </div>
                 <div class="wrong">
                     <h1 class="after">Nice Try!</h1>
-                    <p class="scoreAfter">Score: <span id="score1"></span></p>
-                    <button id="reset1">Try Again</button>
+                    <p>Score: <span id="scoreAfter"></span></p>
+                    <button id="reset">Try Again</button>
                     <div class="leaderboardBtn">
-                        <button id="reset1" onclick="window.location='/scores';">
+                        <button onclick="window.location='/scores';">
                             LEADERBOARD
                         </button>
                     </div>
                     <div class="newScore">
                         <form action="/scores" method="POST" autocomplete="off">
                             <input type="text" class="nameScore" name="name" placeholder="name" required>
-                            <input id="score1" style="display:none" class="highScore" type="text" name="scores" readonly>
-                            <button class="btn-1"><span>Submit High Score!</span></button>
+                            <input id="scoreAfter" style="display:none" class="highScore" type="text" name="scores" readonly>
+                            <button class="highBtn"><span>Submit High Score!</span></button>
                         </form>
                     </div>
                 </div>
             </div>
-            <div id="mySidenav" class="sidenav">
+            <div id="helpMenu" class="sidenav">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
               <p>RGB color values are specified with: rgb(red, green, blue).</p>
               <p>Each parameter (red, green, and blue) defines the intensity of the color as an integer between 0 and 255.</p>
               <p>For example, rgb(0, 0, 255) is rendered as blue, because the blue parameter is set to its highest value (255) and the others are set to 0.</p>
             </div>
             <h1 class="banner">
-            	<span class="yellow">RGB</span>
-            	<span class="green">Trivia</span>
+            	<span>RGB</span>
+            	<span>Trivia</span>
             	<br>
                 <span id="colorDisplay">RGB</span>
              	<!--<br>-->
@@ -71,21 +71,21 @@
             var colorDisplay = document.querySelector("#colorDisplay");
             var banner = document.querySelector(".banner");
             var h1 = document.querySelectorAll(".after");
-            var resetButton = document.querySelector("#reset");
-            var resetButton1 = document.querySelector("#reset1");
+            var nextColor = document.querySelector("#nextColor");
+            var resetBtn = document.querySelector("#reset");
             var help = document.querySelector("#help");
             var score = 0;
             
             colorDisplay.textContent = pickedColor;
 
             help.addEventListener("click", function(){
-                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("helpMenu").style.width = "250px";
                 document.getElementById("main").style.marginLeft = "250px";
             	score = 0;
                 document.getElementById("score").innerHTML = score;
             });
         
-            [resetButton].forEach(function(element) {
+            [nextColor].forEach(function(element) {
                element.addEventListener("click", function() {
                 	colors = generateRandomColors(numSquares);
                 	//pick a new random color from array
@@ -101,7 +101,7 @@
                });
             });
                         
-            [resetButton1].forEach(function(element) {
+            [resetBtn].forEach(function(element) {
                element.addEventListener("click", function() {
                 	colors = generateRandomColors(numSquares);
                 	//pick a new random color from array
@@ -144,7 +144,7 @@
                 		    me = this;
                             setTimeout( function() { $(me).addClass("big"); }, 1 );
                             document.getElementById("score").innerHTML = score;
-                            document.getElementById("score1").innerHTML = score;
+                            document.getElementById("scoreAfter").innerHTML = score;
                 			banner.style.backgroundColor = clickedColor;
                 			score = 0;
             		    } else {
@@ -152,7 +152,7 @@
             		    me = this;
                         setTimeout( function() { $(me).addClass("big"); }, 1 );
                         document.getElementById("score").innerHTML = score;
-                        document.getElementById("score1").innerHTML = score;
+                        document.getElementById("scoreAfter").innerHTML = score;
             			banner.style.backgroundColor = clickedColor;
             			score = 0;
             		    $(".wrong").css("margin-top", "47vh");
@@ -162,7 +162,7 @@
             }
             
             function closeNav() {
-              document.getElementById("mySidenav").style.width = "0";
+              document.getElementById("helpMenu").style.width = "0";
               document.getElementById("main").style.marginLeft = "0";
             }
             
