@@ -70,6 +70,7 @@
             var pickedColor = pickColor();
             var colorDisplay = document.querySelector("#colorDisplay");
             var banner = document.querySelector(".banner");
+            var body = document.querySelector("body");
             var h1 = document.querySelectorAll(".after");
             var nextColor = document.querySelector("#nextColor");
             var resetBtn = document.querySelector("#reset");
@@ -87,6 +88,8 @@
         
             [nextColor].forEach(function(element) {
                element.addEventListener("click", function() {
+                    body.style.backgroundColor = "rgb(35, 35, 35)";
+
                 	colors = generateRandomColors(numSquares);
                 	//pick a new random color from array
                 	pickedColor = pickColor();
@@ -103,6 +106,8 @@
                         
             [resetBtn].forEach(function(element) {
                element.addEventListener("click", function() {
+                    body.style.backgroundColor = "rgb(35, 35, 35)";
+
                 	colors = generateRandomColors(numSquares);
                 	//pick a new random color from array
                 	pickedColor = pickColor();
@@ -133,10 +138,11 @@
             			score ++;
                         document.getElementById("score").innerHTML = score;
             			banner.style.backgroundColor = clickedColor;
+                        body.style.backgroundColor = clickedColor;
             		} else {
             		    $(".correct").hide();
             		    $(".overlay").show();
-            		    if (<%=scores[4].scores%> < score) {
+            		    if (<%= scores[4].scores%> < score) {
             		        $(".wrong").css("margin-top", "42vh");
             		        $(".highScore").val(score);
             		        $(".newScore").show();
@@ -146,6 +152,7 @@
                             document.getElementById("score").innerHTML = score;
                             document.getElementById("scoreAfter").innerHTML = score;
                 			banner.style.backgroundColor = clickedColor;
+                            body.style.backgroundColor = clickedColor;
                 			score = 0;
             		    } else {
                         $(".wrong").show();
@@ -154,6 +161,7 @@
                         document.getElementById("score").innerHTML = score;
                         document.getElementById("scoreAfter").innerHTML = score;
             			banner.style.backgroundColor = clickedColor;
+                        body.style.backgroundColor = clickedColor;
             			score = 0;
             		    $(".wrong").css("margin-top", "47vh");
             		    }

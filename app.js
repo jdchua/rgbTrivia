@@ -1,15 +1,27 @@
+const cors = require("cors");
+
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+const dbConfig = require("./app/config/db.config");
 
-mongoose.connect("mongodb://jeremiah:JballeR24!@ds211625.mlab.com:11625/rgbtrivia", { useNewUrlParser: true });
 
-// mongoose.connect("mongodb://localhost:27017/colorGame", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://jchua:rgbdatabase@cluster0.khgzn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
+
+// mongoose.connect("mongodb://localhost:2/colorGame", { useNewUrlParser: true, useUnifiedTopology: true });
+
+var corsOptions = {
+    origin: "http://localhost:8081"
+};
+
+app.use(cors(corsOptions));
+
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs"); 
+
 
 //schema setup
 var leaderboardSchema = new mongoose.Schema({
@@ -52,6 +64,7 @@ app.post ("/scores", function(req, res) {
     });
 });
 
-app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("RGB Trivia has started");
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
 });
